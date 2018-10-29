@@ -71,7 +71,7 @@ def create_node(data,metadata):
 def empty(size):
 	s=""
 	for x in range(size):
-		s += ""
+		s += " "
 	return s
 def print_tree(node,level):
 	if node.answer!="":
