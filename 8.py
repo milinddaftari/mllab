@@ -15,7 +15,7 @@ f1 = data['V1'].values
 f2 = data['V2'].values
 X = np.array(list(zip(f1, f2)))
 print('Graph for whole dataset')
-plt.scatter(f1, f2, c='black', s=600)
+plt.scatter(f1, f2, c='black', s=100)
 plt.show()
 ##########################################
 kmeans = KMeans(2, random_state=0)
@@ -37,5 +37,5 @@ print(labels)
 probs = gmm.predict_proba(X)
 size = 10 * probs.max(1) ** 3
 print('Graph using EM Algorithm')
-plt.scatter(X[:, 0], X[:, 1], c=labels, s=size, cmap='viridis');
+plt.scatter(X[:, 0], X[:, 1], c=labels, s=size, cmap='viridis')
 plt.show()
