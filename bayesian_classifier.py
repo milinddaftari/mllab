@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-mush = pd.read_csv("mushrooms.csv")
+mush = pd.read_csv("flu.csv")
 mush.replace('?',np.nan,inplace=True)
 print(len(mush.columns),"columns, after dropping NA,",len(mush.dropna(axis=1).columns))
 
@@ -8,7 +8,7 @@ print(len(mush.columns),"columns, after dropping NA,",len(mush.dropna(axis=1).co
 mush.dropna(axis=1,inplace=True)
 
 #the first column in dataset is class which is target variable
-target = 'class'
+target = 'flu'
 features = mush.columns[mush.columns != target]
 classes = mush[target].unique()
 test = mush.sample(frac=0.3)

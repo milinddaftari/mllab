@@ -17,12 +17,12 @@ print(ytrain.shape)
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 xtrain_dtm = count_vect.fit_transform(xtrain)
-print(xtrain_dtm)
+#print(xtrain_dtm)
 xtest_dtm=count_vect.transform(xtest)
 print(count_vect.get_feature_names())
 df=pd.DataFrame(xtrain_dtm.toarray(),columns=count_vect.get_feature_names())
 print(df)#tabular representation
-print(xtrain_dtm) #sparse matrix representation
+#print(xtrain_dtm) #sparse matrix representation
 # Training Naive Bayes (NB) classifier on training data.
 from sklearn.naive_bayes import MultinomialNB
 clf = MultinomialNB().fit(xtrain_dtm,ytrain)
