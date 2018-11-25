@@ -12,12 +12,8 @@ data.head()
 print(data.head())
 # Getting the values and plotting it 
 f1 = data['V1'].values
-print("f1")
-print(f1)
 f2 = data['V2'].values
 X = np.array(list(zip(f1, f2)))
-print("x")
-print(X)
 print('Graph for whole dataset')
 plt.scatter(f1, f2, c='black', s=600)
 plt.show()
@@ -36,7 +32,7 @@ plt.show()
 #gmm demo
 gmm = GaussianMixture(n_components=2).fit(X)
 labels = gmm.predict(X)
-print("lLABELS GMM")
+print("LABELS GMM")
 print(labels)
 probs = gmm.predict_proba(X)
 size = 10 * probs.max(1) ** 3
