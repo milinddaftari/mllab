@@ -3,9 +3,7 @@ import pandas as pd
 mush = pd.read_csv("mushrooms.csv")
 mush.replace('?',np.nan,inplace=True)
 print(len(mush.columns),"columns, after dropping NA,",len(mush.dropna(axis=1).columns))
-#drop wherever you have ? the values are not known
 mush.dropna(axis=1,inplace=True)
-#the first column in dataset is class which is target variable
 target = 'class'
 features = mush.columns[mush.columns != target]
 classes = mush[target].unique()
@@ -25,7 +23,6 @@ for x in classes:
             clsp[col] = colp              
     probs[x] = clsp   
     probcl[x] = len(mushcl)/len(mush)
-
 def probabs(x):
     if not isinstance(x,pd.Series):
         raise IOError("Arg must of type Series")
@@ -39,7 +36,6 @@ def probabs(x):
                 pr = 0
         probab[cl] = pr
     return probab
-
 def classify(x):   
     probab = probabs(x)  
     mx = 0
