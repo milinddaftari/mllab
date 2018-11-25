@@ -17,12 +17,10 @@ print(ytrain.shape)
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 xtrain_dtm = count_vect.fit_transform(xtrain)
-#print(xtrain_dtm)
 xtest_dtm=count_vect.transform(xtest)
 print(count_vect.get_feature_names())
 df=pd.DataFrame(xtrain_dtm.toarray(),columns=count_vect.get_feature_names())
 print(df)#tabular representation
-#print(xtrain_dtm) #sparse matrix representation
 # Training Naive Bayes (NB) classifier on training data.
 from sklearn.naive_bayes import MultinomialNB
 clf = MultinomialNB().fit(xtrain_dtm,ytrain)
@@ -36,8 +34,3 @@ print(metrics.confusion_matrix(ytest,predicted))
 print('Recall and Precison ')
 print(metrics.recall_score(ytest,predicted))
 print(metrics.precision_score(ytest,predicted))
-'''docs_new = ['I like this place', 'My boss is not my saviour']
-X_new_counts = count_vect.transform(docs_new)
-predictednew = clf.predict(X_new_counts)
-for doc, category in zip(docs_new, predictednew):
-print('%s->%s' % (doc, msg.labelnum[category]))'''
