@@ -3,9 +3,10 @@ from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 from sklearn.model_selection import train_test_split
 iris_dataset=load_iris()
+targets = iris_dataset.target_names
 print("\n IRIS FEATURES n TARGET NAMES: \n ", iris_dataset.target_names) 
-for i in range(len(iris_dataset.target_names)):
-	print("\n[{0}]:[{1}]".format(i,iris_dataset.target_names[i])) 
+for i in range(len(targets)):
+	print("\n[{0}]:[{1}]".format(i,targets[i])) 
 X_train, X_test, y_train, y_test = train_test_split(iris_dataset["data"], iris_dataset["target"], random_state=0) 
 kn = KNeighborsClassifier(n_neighbors=1) 
 kn.fit(X_train, y_train)
